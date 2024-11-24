@@ -7,11 +7,17 @@ import (
 
 func main() {
 	m := make(map[string]int)
+	p := make(map[int]string)
+	p[1] = "one"
+	p[2] = "two"
+	p[3] = "three"
 
 	m["k1"] = 7
 	m["k2"] = 13
 
-	fmt.Println("map:", m)
+	fmt.Println("map m:", m)
+
+	fmt.Println("map p:", p)
 
 	v1 := m["k1"]
 	fmt.Println("v1:", v1)
