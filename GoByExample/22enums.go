@@ -27,8 +27,6 @@ func main() {
 	fmt.Println(ns)
 	ns2 := transition(ns)
 	fmt.Println(ns2)
-	ns = transition(StateUp)
-	fmt.Println(ns)
 
 }
 func transition(s ServerState) ServerState {
