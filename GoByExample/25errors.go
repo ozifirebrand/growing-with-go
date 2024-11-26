@@ -24,6 +24,24 @@ func makeTea(arg int) error {
 	return nil
 }
 
+//custom errors
+
+type argError struct {
+	arg     int
+	message string
+}
+
+func (e *argError) Error() string {
+	return fmt.Sprintf("%d - %s", e.arg)
+}
+
+func function(arg int) (int, error) {
+	if arg == 42 {
+		return -1, &argError{arg, "can't work with it"}
+	}
+	return arg + 3, nil
+}
+
 func main() {
 	for _, i := range []int{7, 42} {
 		if r, e := testFunction(i); e != nil {
@@ -45,6 +63,15 @@ func main() {
 			continue
 		}
 		fmt.Println("Tea is ready!")
+	}
+
+	_, err := function(42)
+	var ae *argError
+	if errors.As(err, &ae) {
+		fmt.Println(ae.arg)
+		fmt.Println(ae.message)
+	} else {
+		fmt.Println("err doesn't match argError")
 	}
 
 }
