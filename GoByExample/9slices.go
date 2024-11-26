@@ -21,7 +21,7 @@ func main() {
 	fmt.Println("len:", len(s))
 
 	s = append(s, "d")
-	s = append(s, "e", "f")
+	s = append(s, "e", "testFunction")
 	fmt.Println("apd:", s)
 
 	c := make([]string, len(s))

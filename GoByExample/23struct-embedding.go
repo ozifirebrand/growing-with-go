@@ -31,6 +31,6 @@ func main() {
 	type describer interface {
 		describer() string
 	}
-	var d describer = co
-	fmt.Println("describe:", d.describer())
+	//var d describer = co
+	//fmt.Println("describe:", d.describer())
 }
